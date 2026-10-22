@@ -1,1 +1,24 @@
 <h3>"Отчёт по наблюдаемости:анализ логов веб-сервера"</h3>
+192.168.1.50 - - [22/Oct/2026:10:45:01 +0300] "GET /index.html HTTP/1.1" 200 4523 "https://example.com" "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+192.168.1.50 - - [22/Oct/2026:10:45:03 +0300] "GET /assets/css/style.css HTTP/1.1" 200 1240 "https://example.comindex.html" "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+192.168.1.72 - - [22/Oct/2026:10:45:15 +0300] "GET /about HTTP/1.1" 200 3120 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)"
+198.51.100.42 - - [22/Oct/2026:10:46:00 +0300] "GET /admin HTTP/1.1" 404 215 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/119.0"
+198.51.100.42 - - [22/Oct/2026:10:46:02 +0300] "GET /admin/ HTTP/1.1" 403 290 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/119.0"
+198.51.100.42 - - [22/Oct/2026:10:46:05 +0300] "POST /admin/login.php HTTP/1.1" 403 290 "https://example.comadmin/" "Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/119.0"
+192.168.1.50 - - [22/Oct/2026:10:46:06 +0300] "GET /contact HTTP/1.1" 200 1845 "https://example.comindex.html" "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+198.51.100.42 - - [22/Oct/2026:10:46:08 +0300] "POST /admin/wp-login.php HTTP/1.1" 404 215 "https://example.comadmin/" "Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/119.0"
+198.51.100.42 - - [22/Oct/2026:10:46:11 +0300] "POST /administrator/index.php HTTP/1.1" 404 215 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/119.0"
+198.51.100.42 - - [22/Oct/2026:10:46:14 +0300] "POST /admin/login.php HTTP/1.1" 403 290 "https://example.comadmin/" "Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/119.0"
+192.168.1.88 - - [22/Oct/2026:10:46:20 +0300] "GET /api/v1/status HTTP/1.1" 200 120 "-" "PostmanRuntime/7.32.3"
+198.51.100.42 - - [22/Oct/2026:10:46:22 +0300] "POST /admin/login.php HTTP/1.1" 403 290 "https://example.comadmin/" "Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/119.0"
+192.168.1.50 - - [22/Oct/2026:10:46:25 +0300] "GET /assets/js/main.js HTTP/1.1" 200 3410 "https://example.comindex.html" "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+
+
+Время (UTC+03)	Метод	Запрашиваемый ресурс (URL)	HTTP Код	Описание/Тип угрозы
+10:46:00	GET	/admin	404	Разведка: поиск стандартной админки
+10:46:02	GET	/admin/	403	Директория существует, доступ ограничен
+10:46:05	POST	/admin/login.php	403	Попытка подбора пары логин/пароль
+10:46:08	POST	/admin/wp-login.php	404	Попытка атаки на WordPress (файл отсутствует)
+10:46:11	POST	/administrator/index.php	404	Попытка атаки на Joomla (файл отсутствует)
+10:46:14	POST	/admin/login.php	403	Повторный перебор учетных данных
+10:46:22	POST	/admin/login.php	403	Повторный перебор учетных данных
